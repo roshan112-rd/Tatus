@@ -1,0 +1,152 @@
+{% load static %}
+<header>
+    
+    <nav class="container-header-desktop">
+        <div class="top-bar">
+            <div class="content-topbar container flex-sb-c h-full">
+                <div class="size-w-0 flex-wr-s-c">
+                    <div class="t1-s-1 cl-13 m-r-50">
+                        <span class="fs-16 m-r-6">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                        </span>
+                        <span>Pulchowk, Lalitpur, Nepal</span>
+                    </div>
+
+                    <div class="t1-s-1 cl-13 m-r-50">
+                        <span class="fs-16 m-r-6">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                        </span>
+                        <span>(+1) 96 716 6879</span>
+                    </div>
+
+                    <div class="t1-s-1 cl-13 m-r-50">
+                        <span class="fs-16 m-r-6">
+                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        </span>
+                        <span>Sun-Fri 09:00 am - 17:00 pm/Saturday CLOSE</span>
+                    </div>					
+                </div>
+
+                <div class="text-nowrap">
+                    <a href="#" class="fs-16 cl-13 hov-link2 trans-02 m-l-15">
+                        <i class="fa fa-facebook-official"></i>	
+                    </a>
+
+                    <a href="#" class="fs-16 cl-13 hov-link2 trans-02 m-l-15">
+                        <i class="fa fa-twitter"></i>	
+                    </a>
+                    
+                    <a href="#" class="fs-16 cl-13 hov-link2 trans-02 m-l-15">
+                        <i class="fa fa-instagram"></i>	
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrap-menu-desktop">
+            <div class="limiter-menu-desktop container">					
+                <!-- Logo desktop -->		
+                <div class="logo">
+                    <a href="{% url 'home' %}"><img src="{% static 'images/logo1.gif' %}" alt="LOGO"></a>
+                </div>
+
+                <!-- Menu desktop -->
+                <div class="menu-desktop">
+                    <ul class="main-menu respon-sub-menu">
+                        <li>
+                            <a href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'about' %}">About Us</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'events' %}">Events</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'projects' %}">Projects</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'blogs' %}">Blogs</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'contact' %}">Contact us</a>
+                        </li>
+                    </ul>
+                </div>					
+            </div>
+        </div>	
+    </nav>
+
+    <!-- Header Mobile -->
+    <nav class="container-header-mobile">
+        <div class="wrap-header-mobile">
+            <!-- Logo moblie -->		
+            <div class="logo-mobile">
+                <a href="{% url 'home' %}"><img src="{% static 'images/logo1.gif' %}" alt="LOGO"></a>
+            </div>
+            
+
+            <!-- Button show menu -->
+            <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </div>			
+        </div>
+
+        <div class="menu-mobile">
+            <ul class="top-bar-m p-l-20 p-tb-8">
+                <li>
+                    <div class="t1-s-1 cl-5 p-tb-3">
+                        <span class="fs-16 m-r-6">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                        </span>
+                        <span>379 5Th Ave New York, Nyc 10018</span>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="t1-s-1 cl-5 p-tb-3">
+                        <span class="fs-16 m-r-6">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                        </span>
+                        <span>(+1) 96 716 6879</span>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="t1-s-1 cl-5 p-tb-3">
+                        <span class="fs-16 m-r-6">
+                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        </span>
+                        <span>Mon-Sat 09:00 am - 17:00 pm/Sunday CLOSE</span>
+                    </div>
+                </li>
+
+                <li>
+                    <div>
+                        <a href="#" class="fs-16 cl-5 hov-link2 trans-02 m-r-15">
+                            <i class="fa fa-facebook-official"></i>	
+                        </a>
+
+                        <a href="#" class="fs-16 cl-5 hov-link2 trans-02 m-r-15">
+                            <i class="fa fa-twitter"></i>	
+                        </a>
+
+                        <a href="#" class="fs-16 cl-5 hov-link2 trans-02 m-r-15">
+                            <i class="fa fa-google-plus"></i>	
+                        </a>
+
+                        <a href="#" class="fs-16 cl-5 hov-link2 trans-02 m-r-15">
+                            <i class="fa fa-instagram"></i>	
+                        </a>
+
+                        <a href="#" class="fs-16 cl-5 hov-link2 trans-02 m-r-15">
+                            <i class="fa fa-linkedin"></i>	
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,88 @@
+{% load static %}
+{% include 'header.html' %}
+<title>Event</title>
+
+<body class="animsition">
+    {% include 'nav.html' %}
+    <section class="bg-img1 kit-overlay1" style="background-image: url('{% static 'images/about.jpg' %}')">
+        <div class="container size-h-3 p-tb-30 flex-col-c-c">
+            <h2 class="t1-b-1 text-uppercase cl-0 txt-center m-b-25">
+                Event Details
+            </h2>
+            <div class="flex-wr-c-c">
+                <a href="{% url 'home' %}" class="breadcrumb-item">
+                    Home
+                </a>
+                <a href="{% url 'events' %}" class="breadcrumb-item">
+                    Events
+                </a>
+                <span class="breadcrumb-item">
+                    Event Details
+                </span>
+            </div>
+        </div>
+    </section>
+    <section class="bg-0 p-t-100 p-b-100">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6 p-b-20">
+                    <img class="max-s-full m-b-30" src="{{event.image1.url}}" alt="IMG" width="100%">
+                    <img class="max-s-full m-b-30" src="{{event.image2.url}}" alt="IMG" width="100%">
+                </div>
+
+                <div class="col-md-6 p-b-20">
+
+                    <div class="p-l-35 m-b-30 p-l-0-sr991">
+                        <h3 class="t1-b-3 cl-3 m-b-11 m-t--6">
+                            {{event.event_title}}
+                        </h3>
+
+                        <ul class="bo-b-1 bcl-12 p-b-16 m-b-24">
+                            <li class="m-b-7">
+                                <span class="t1-s-5 cl-3">
+                                    Start Date:
+                                </span>
+
+                                <span class="t1-s-2 cl-6">
+                                    {{event.start_date}}
+                                </span>
+                            </li>
+
+                            <li class="m-b-7">
+                                <span class="t1-s-5 cl-3">
+                                    End Date:
+                                </span>
+
+                                <span class="t1-s-2 cl-6">
+                                    {{event.end_date}}
+                                </span>
+                            </li>
+                        </ul>
+
+                        <div class="bo-b-1 bcl-12 p-b-11 m-b-27">
+                            <p class="t1-s-2 cl-6 m-b-12">
+                                {{event.description|safe}} </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Block5 -->
+
+            </div>
+            <div class="block5 flex-wr-sb-c bo-t-1 bcl-14">
+                <a href="#" class="block5-1 bg-img2" style="background-image: url(images/project-02.jpg);"
+                    title="Training Skill"></a>
+
+                <a href="{% url 'events' %}"
+                    class="block5-2 flex-c-c bg-11 t1-m-7 text-uppercase cl-0 hov-btn1 trans-02">
+                    <i class="fa fa-th fs-24 m-r-10"></i>
+                    Events
+                </a>
+
+                <a href="#" class="block5-3 bg-img2" style="background-image: url(images/project-07.jpg);"
+                    title="Market Analysis"></a>
+            </div>
+    </section>
+    {% include 'footer.html' %}
+</body>

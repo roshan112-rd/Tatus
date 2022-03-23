@@ -1,0 +1,119 @@
+{% load static %}
+{% include 'header.html' %}
+<title>Projects</title>
+
+<body class="animsition">
+	{% include 'nav.html' %}
+
+  <section
+  class="bg-img1 kit-overlay1"
+  style="background-image: url('{% static 'images/about.jpg' %}')">
+  <div class="container size-h-3 p-tb-30 flex-col-c-c">
+    <h2 class="t1-b-1 text-uppercase cl-0 txt-center m-b-25">Project Detail</h2>
+
+    <div class="flex-wr-c-c">
+      <a href="{% url 'home' %}" class="breadcrumb-item"> Home </a>
+
+      <a href="{% url 'blogs' %}" class="breadcrumb-item"> Projects </a>
+
+      <span class="breadcrumb-item"> Project Details </span>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="bg-0 p-t-84 p-b-100">
+  <div class="container">
+    <div class="flex-wr-sb-c bo-b-1 bcl-12 p-b-12 m-b-24">
+      <h3 class="t1-b-3 cl-3 m-r-30 m-tb-10">
+        {{project.project_title}}
+      </h3>
+
+      <div class="m-rl--10 m-tb-10">
+        <a href="#" class="fs-16 cl-5 hov-link2 trans-02 m-rl-10">
+          <i class="fa fa-facebook-f"></i>	
+        </a>
+
+        <a href="#" class="fs-16 cl-5 hov-link2 trans-02 m-rl-10">
+          <i class="fa fa-twitter"></i>	
+        </a>
+
+        <a href="#" class="fs-16 cl-5 hov-link2 trans-02 m-rl-10">
+          <i class="fa fa-google-plus"></i>	
+        </a>
+
+        <a href="#" class="fs-16 cl-5 hov-link2 trans-02 m-rl-10">
+          <i class="fa fa-instagram"></i>	
+        </a>
+
+        <a href="#" class="fs-16 cl-5 hov-link2 trans-02 m-rl-10">
+          <i class="fa fa-linkedin"></i>	
+        </a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 p-b-30">
+        <ul>
+          <li class="m-b-7">
+            <span class="t1-s-5 cl-3">
+              Status: 
+            </span>
+
+            <span class="t1-s-2 cl-6">
+              {{project.status}}
+            </span>
+          </li>
+
+          <li class="m-b-7">
+            <span class="t1-s-5 cl-3">
+              Start Date: 
+            </span>
+
+            <span class="t1-s-2 cl-6">
+              {{project.start_date}}
+            </span>
+          </li>
+
+          <li class="m-b-7">
+            <span class="t1-s-5 cl-3">
+              End Date: 
+            </span>
+
+            <span class="t1-s-2 cl-6">
+              {{project.end_date}}
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-md-8 p-b-30">
+        <div>
+          <p class="t1-s-2 cl-6 m-b-12">{{project.description|safe}}</p>
+        </div>
+      </div>
+
+      <div class="col-12 p-b-20">
+        <img class="max-s-full m-b-30" src="{{project.image1.url}}" alt="IMG" width="100%" height="550">
+        <img class="max-s-full m-b-30" src="{{project.image2.url}}" alt="IMG" width="100%" height="550">
+      </div>
+    </div>
+    
+    <!-- Block5 -->
+    <div class="block5 flex-wr-sb-c bo-t-1 bcl-14">
+      <a href="#" class="block5-1 bg-img2" style="background-image: url(images/project-02.jpg);" title="Training Skill"></a>
+
+      <a href="{% url 'projects' %}" class="block5-2 flex-c-c bg-11 t1-m-7 text-uppercase cl-0 hov-btn1 trans-02">
+        <i class="fa fa-th fs-24 m-r-10"></i>
+        Projects
+      </a>
+
+      <a href="#" class="block5-3 bg-img2" style="background-image: url(images/project-07.jpg);" title="Market Analysis"></a>
+    </div>
+  </div>
+</section>
+
+
+{% include 'footer.html' %}
+</body>

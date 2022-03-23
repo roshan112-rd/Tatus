@@ -1,0 +1,75 @@
+{% load static %}
+{% include 'header.html' %}
+<title>Blogs</title>
+<body class="animsition">
+  {% include 'nav.html' %}
+  <section class="bg-img1 kit-overlay1" style="background-image: url('{% static 'images/about.jpg' %}')">
+		<div class="container size-h-3 p-tb-30 flex-col-c-c">
+			<h2 class="t1-b-1 text-uppercase cl-0 txt-center m-b-25">
+				Blogs
+			</h2>
+
+			<div class="flex-wr-c-c">
+				<a href="{% url 'home' %}" class="breadcrumb-item">
+					Home 
+				</a>
+				<span class="breadcrumb-item">
+					Blogs
+				</span>
+			</div>
+		</div>
+	</section>
+
+  <div class="bg-0 p-t-95 p-b-50">
+		<div class="container">
+			<div class="row isotope-grid">
+
+
+        {% for blog in blog %}
+				<div class="col-sm-6 col-lg-4 p-b-50 isotope-item business-n">
+					<div class="bg-0 h-full">
+						<a href="{% url 'blog_single' id=blog.id %}" class="hov-img0 of-hidden">
+							<img src="{{ blog.image.url }}" height="200" alt="IMG">
+						</a>
+						<div class="bg-0 p-t-26">
+							<h4 class="p-b-12">
+								<a href="{% url 'blog_single' id=blog.id %}" class="t1-m-1 cl-3 hov-link2 trans-02">
+									
+                  {{ blog.blog_title }}
+								</a>
+							</h4>
+
+							<div class="flex-wr-s-c p-b-9">
+								<div class="p-r-20">
+									<i class="fs-14 cl-7 fa fa-calendar m-r-2"></i>
+
+									<span class="t1-s-2 cl-7">
+                    {{ blog.created.date }}
+									</span>
+								</div>
+
+								<div class="p-l-20 bo-l-1 bcl-12">
+									<i class="fs-14 cl-7 fa fa-user m-r-2"></i>
+
+									<a href="#" class="t1-s-2 cl-11 hov-link3">
+										Admin
+									</a>
+								</div>
+							</div>
+             
+              
+							<a href=" {% url 'blog_single' id=blog.id %}" class="d-inline-flex flex-c-c size-a-1 p-rl-15 t1-s-2 text-uppercase cl-0 bg-11 hov-btn1 trans-02">
+								Read More
+							</a>
+						</div>
+					</div>
+				</div>
+        {% endfor %}
+
+			</div>
+		</div>
+	</div>
+{% include 'footer.html' %}
+</body>
+
+

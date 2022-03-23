@@ -1,0 +1,165 @@
+{% load static %} {% include 'header.html' %}
+<title>Blog</title>
+
+<body class="animsition">
+  {% include 'nav.html' %}
+
+  <section
+    class="bg-img1 kit-overlay1" style="background-image: url('{% static 'images/about.jpg' %}')">
+    <div class="container size-h-3 p-tb-30 flex-col-c-c">
+      <h2 class="t1-b-1 text-uppercase cl-0 txt-center m-b-25">Blog Detail</h2>
+
+      <div class="flex-wr-c-c">
+        <a href="{% url 'home' %}" class="breadcrumb-item"> Home </a>
+
+        <a href="{% url 'blogs' %}" class="breadcrumb-item"> Blogs </a>
+
+        <span class="breadcrumb-item"> Blog Details </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <div class="bg-0 p-t-100 p-b-70">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-sm-10 col-md-8 col-lg-9 p-b-30">
+          <div class="p-l-50 p-l-15-sr991 p-l-0-sr767">
+            <!-- News detail -->
+            <div class="m-b-25">
+              <img
+                class="m-b-45 max-s-full"
+                src="{{blog.image.url}}"
+                alt="IMG"
+              />
+
+              <h4 class="t1-b-3 cl-3 m-b-11">{{blog.blog_title}}</h4>
+
+              <div class="flex-wr-s-c m-b-11">
+                <div class="p-r-20">
+                  <i class="fs-14 cl-7 fa fa-calendar m-r-2"></i>
+
+                  <span class="t1-s-2 cl-7"> {{blog.created.date}} </span>
+                </div>
+
+                <div class="p-l-20 bo-l-1 bcl-12">
+                  <i class="fs-14 cl-7 fa fa-user m-r-2"></i>
+
+                  <a href="#" class="t1-s-2 cl-11 hov-link3"> Admin </a>
+                </div>
+              </div>
+
+              <p class="t1-s-2 cl-6 m-b-9">{{blog.description|safe}}</p>
+
+              <div class="flex-wr-sb-c p-t-22">
+                <div class="flex-s-s p-tb-8 m-r-30">
+                  <span class="fs-14 cl-5 m-r-9">
+                    <i class="fa fa-tags"></i>
+                  </span>
+
+                  <span class="size-w-0">
+                    <a href="#" class="t1-s-5 text-uppercase cl-11 hov-link1">
+                      {{blog.tags}}
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Comment -->
+
+            <div class="m-b-16">
+              <h5 class="t1-m-1 text-uppercase cl-3 m-b-5">
+                Comments in This Blog
+              </h5>
+              {% if comment %} {% for comment in comment %}
+              <div class="wrap-cmt">
+                <!-- main comment -->
+                <div class="item-cmt main-cmt flex-wr-sb-s">
+                  <div class="cmt-pic">
+                    <img
+                      src="{% static 'images/user.png' %}"
+                      alt="IMG"
+                      width="100%"
+                    />
+                  </div>
+
+                  <div class="cmt-text">
+                    <p class="t1-s-2 cl-6 m-b-9">{{comment.comment}}</p>
+
+                    <div class="t1-s-2">
+                      <span class="d-inline-block cl-3 p-r-5 m-tb-1">
+                        {{comment.full_name}}
+                      </span>
+
+                      <span
+                        class="d-inline-block cl-7 bo-l-1 bcl-12 p-l-9 p-r-5 m-tb-1"
+                      >
+                        {{comment.created.date}}
+                      </span>
+
+                      <span class="d-inline-block bo-l-1 bcl-12 p-l-9 m-tb-1">
+                        <i class="fa fa-mail-reply cl-7 m-r-5"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {% endfor %} {% else %}
+              <h1>no comments</h1>
+              {% endif %}
+            </div>
+
+            <!-- Leave Comment -->
+            <div>
+              <h5 class="t1-m-1 text-uppercase cl-3 m-b-24">Leave A Comment</h5>
+
+              <form
+                class="row"
+                action="{% url 'comment' id=blog.id %}"
+                method="POST"
+              >
+                {% csrf_token %}
+                <div class="col-sm-6 p-b-20">
+                  <input
+                    class="size-a-3 bo-1-rad-5 bcl-12 t1-m-2 cl-6 plh-6 p-rl-20 focus-in1"
+                    type="text"
+                    name="full_name"
+                    placeholder="Your Name"
+                  />
+                </div>
+
+                <div class="col-sm-6 p-b-20">
+                  <input
+                    class="size-a-3 bo-1-rad-5 bcl-12 t1-m-2 cl-6 plh-6 p-rl-20 focus-in1"
+                    type="text"
+                    name="email"
+                    placeholder="Your Email"
+                  />
+                </div>
+
+                <div class="col-12 p-b-25">
+                  <textarea
+                    class="size-a-14 bo-1-rad-5 bcl-12 t1-m-2 cl-6 plh-6 p-rl-20 p-tb-13 focus-in1"
+                    name="comment"
+                    placeholder="Your Comment"
+                  ></textarea>
+                </div>
+
+                <div class="col-12">
+                  <button
+                    class="d-inline-flex flex-c-c size-a-23 bg-11 p-rl-10 t1-s-2 text-uppercase cl-0 hov-btn1 trans-02"
+                  >
+                    Comment
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% include 'footer.html' %}
+</body>
