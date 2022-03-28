@@ -125,3 +125,11 @@ def project_single (request, id):
 
 def error(request,exception):
     return render (request, '404.html')
+
+
+def subscribe(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        Subscription.objects.create(email=email)
+        return redirect ('home')
+    return render (request,'contact.html')

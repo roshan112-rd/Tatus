@@ -78,7 +78,7 @@ class Team(models.Model):
     image =models.ImageField(upload_to='team_images/', null=True)
     facebook = models.URLField(null=True, blank=True)
     instagram = models.URLField(null=True, blank=True)
-    twitter = models.URLField(null=True, blank=True)
+    linkedin = models.URLField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
@@ -126,3 +126,8 @@ class Message(models.Model):
     created = models.DateTimeField(auto_now_add=True, null=True)
     def __str__(self):
         return self.name
+
+class Subscription(models.Model):
+    email = models.EmailField(max_length=100)
+    def __str__(self):
+        return self.email
