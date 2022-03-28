@@ -3,7 +3,9 @@ from .models import *
 from django_summernote.admin import SummernoteModelAdmin
 admin.site.site_header = "Admin panel"
 
+from django_summernote.models import Attachment
 
+admin.site.unregister(Attachment)
 
 
 class BlogDate(admin.ModelAdmin):
