@@ -1,11 +1,10 @@
-{% load static %} {% include 'header.html' %}
+{% load static %} {% load social_share %} {% include 'header.html' %}
 <title>Blog</title>
 
 <body class="animsition">
   {% include 'nav.html' %}
 
-  <section
-    class="bg-img1 kit-overlay1" style="background-image: url('{% static 'images/about.jpg' %}')">
+  <section class="bg-img1 kit-overlay1" style="background-image: url('{% static 'images/about.jpg' %}')">
     <div class="container size-h-3 p-tb-30 flex-col-c-c">
       <h2 class="t1-b-1 text-uppercase cl-0 txt-center m-b-25">Blog Detail</h2>
 
@@ -27,11 +26,7 @@
           <div class="p-l-50 p-l-15-sr991 p-l-0-sr767">
             <!-- News detail -->
             <div class="m-b-25">
-              <img
-                class="m-b-45 max-s-full"
-                src="{{blog.image.url}}"
-                alt="IMG"
-              />
+              <img class="m-b-45 max-s-full" src="{{blog.image.url}}" alt="IMG" width="100%" />
 
               <h4 class="t1-b-3 cl-3 m-b-11">{{blog.blog_title}}</h4>
 
@@ -63,6 +58,22 @@
                     </a>
                   </span>
                 </div>
+                <div class="flex-s-s p-tb-8">
+                  <span class="fs-14 cl-5 m-r-9">
+                    <i class="fa fa-share-alt-square"></i>
+                  </span>
+                  <span class="size-w-0">
+                     {% post_to_facebook object_or_url "Facebook,"  %}
+                  </span>
+
+                  <span class="size-w-0">
+                    {% post_to_whatsapp  object_or_url " Whatsapp,"  %}
+                 </span>
+
+                 <span class="size-w-0">
+                  {% post_to_twitter  object_or_url "Twitter"  %}
+               </span>
+                </div>
               </div>
             </div>
 
@@ -77,11 +88,7 @@
                 <!-- main comment -->
                 <div class="item-cmt main-cmt flex-wr-sb-s">
                   <div class="cmt-pic">
-                    <img
-                      src="{% static 'images/user.png' %}"
-                      alt="IMG"
-                      width="100%"
-                    />
+                    <img src="{% static 'images/user.png' %}" alt="IMG" width="100%" />
                   </div>
 
                   <div class="cmt-text">
@@ -92,9 +99,7 @@
                         {{comment.full_name}}
                       </span>
 
-                      <span
-                        class="d-inline-block cl-7 bo-l-1 bcl-12 p-l-9 p-r-5 m-tb-1"
-                      >
+                      <span class="d-inline-block cl-7 bo-l-1 bcl-12 p-l-9 p-r-5 m-tb-1">
                         {{comment.created.date}}
                       </span>
 
@@ -114,43 +119,26 @@
             <!-- Leave Comment -->
             <div>
               <h5 class="t1-m-1 text-uppercase cl-3 m-b-24">Leave A Comment</h5>
-
-              <form
-                class="row"
-                action="{% url 'comment' id=blog.id %}"
-                method="POST"
-              >
+              <form class="row" action="{% url 'comment' id=blog.id %}" method="POST">
                 {% csrf_token %}
                 <div class="col-sm-6 p-b-20">
-                  <input
-                    class="size-a-3 bo-1-rad-5 bcl-12 t1-m-2 cl-6 plh-6 p-rl-20 focus-in1"
-                    type="text"
-                    name="full_name"
-                    placeholder="Your Name"
-                  />
+                  <input class="size-a-3 bo-1-rad-5 bcl-12 t1-m-2 cl-6 plh-6 p-rl-20 focus-in1" type="text"
+                    name="full_name" placeholder="Your Name" />
                 </div>
 
                 <div class="col-sm-6 p-b-20">
-                  <input
-                    class="size-a-3 bo-1-rad-5 bcl-12 t1-m-2 cl-6 plh-6 p-rl-20 focus-in1"
-                    type="text"
-                    name="email"
-                    placeholder="Your Email"
-                  />
+                  <input class="size-a-3 bo-1-rad-5 bcl-12 t1-m-2 cl-6 plh-6 p-rl-20 focus-in1" type="text" name="email"
+                    placeholder="Your Email" />
                 </div>
 
                 <div class="col-12 p-b-25">
-                  <textarea
-                    class="size-a-14 bo-1-rad-5 bcl-12 t1-m-2 cl-6 plh-6 p-rl-20 p-tb-13 focus-in1"
-                    name="comment"
-                    placeholder="Your Comment"
-                  ></textarea>
+                  <textarea class="size-a-14 bo-1-rad-5 bcl-12 t1-m-2 cl-6 plh-6 p-rl-20 p-tb-13 focus-in1"
+                    name="comment" placeholder="Your Comment"></textarea>
                 </div>
 
                 <div class="col-12">
                   <button
-                    class="d-inline-flex flex-c-c size-a-23 bg-11 p-rl-10 t1-s-2 text-uppercase cl-0 hov-btn1 trans-02"
-                  >
+                    class="d-inline-flex flex-c-c size-a-23 bg-11 p-rl-10 t1-s-2 text-uppercase cl-0 hov-btn1 trans-02">
                     Comment
                   </button>
                 </div>

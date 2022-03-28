@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'features',
 ]
 INSTALLED_APPS += ('django_summernote',)
-
+INSTALLED_APPS += ['django_social_share']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1,11 +1,4 @@
 /*------------------------------------------------------------------
-Project: Arges
-Version: 1.0
-Last change:  
-Assigned to:  Le Xuan Bach
-Primary use:  Company
--------------------------------------------------------------------*/
-/*------------------------------------------------------------------
 [LAYOUT]
 
 * body
@@ -72,7 +65,52 @@ Input, textarea : 16px/1.5 'Roboto-Ragular', Arial, sans-serif;
 
 
 
+.facebook-this{
+  min-width: 0;
+  flex-grow: 1;
+}
+.facebook-this a{
+  font-family: Roboto-Medium;
+font-size: 14px;
+line-height: 1.7;
+color: #16a086;
+text-transform: uppercase!important;
+}
+.facebook-this a:hover{
+  color: #05233a;
+}
 
+.whatsapp-this{
+  margin-left: 5px;
+  min-width: 0;
+  flex-grow: 1;
+}
+.whatsapp-this a{
+  font-family: Roboto-Medium;
+font-size: 14px;
+line-height: 1.7;
+color: #16a086;
+text-transform: uppercase!important;
+}
+.whatsapp-this a:hover{
+  color: #05233a;
+}
+
+.tweet-this{
+  margin-left: 5px;
+  min-width: 0;
+  flex-grow: 1;
+}
+.tweet-this a{
+  font-family: Roboto-Medium;
+font-size: 14px;
+line-height: 1.7;
+color: #16a086;
+text-transform: uppercase!important;
+}
+.tweet-this a:hover{
+  color: #05233a;
+}
 /*//////////////////////////////////////////////////////////////////
 [ LOADDING ]*/
 .animsition-loading-1 {
@@ -3086,3 +3124,7 @@ input.num-product::-webkit-inner-spin-button {
 @media (max-width: 480px) {
   
 }
+
+
+
+
