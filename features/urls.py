@@ -17,7 +17,8 @@ urlpatterns = [
     path('project_single/<int:id>',views.project_single, name='project_single'),
     path('event_single/<int:id>',views.event_single, name='event_single'),
 	path('comment/<int:id>',views.comment, name='comment'),
-    
+	path('subscribe/',views.subscribe, name='subscribe'),
+  
 
     
     re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),

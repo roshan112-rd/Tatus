@@ -28,7 +28,7 @@
 				{% for event in event %}
 				<div class="col-sm-6 col-md-4 p-b-42">
 					<div>
-						<a href="" class="hov-img0 of-hidden">
+						<a href="{% url 'event_single' id=event.event_id %}" class="hov-img0 of-hidden">
 							<img src="{{event.image2.url}}" alt="IMG" height="250">
 						</a>
 						<div class="p-t-26">
