@@ -131,3 +131,12 @@ class Subscription(models.Model):
     email = models.EmailField(max_length=100)
     def __str__(self):
         return self.email
+
+
+class Logo(models.Model):
+    name = models.CharField(max_length=200)
+    header = models.ImageField(null=True, upload_to='logo_images/header' )
+    footer_logo = models.ImageField(null=True,upload_to = 'logo_images/footer')
+
+    def __str__(self):
+        return self.name

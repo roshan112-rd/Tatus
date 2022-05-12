@@ -45,11 +45,12 @@
 
         <div class="wrap-menu-desktop">
             <div class="limiter-menu-desktop container">					
-                <!-- Logo desktop -->		
+                <!-- Logo desktop -->
+                {% for header_logo in header_logo %}		
                 <div class="logo">
-                    <a href="{% url 'home' %}"><img src="{% static 'images/logo1.gif' %}" alt="LOGO"></a>
+                    <a href="{% url 'home' %}"><img src="{{header_logo.header.url}}" alt="LOGO"></a>
                 </div>
-
+                {% endfor %}
                 <!-- Menu desktop -->
                 <div class="menu-desktop">
                     <ul class="main-menu respon-sub-menu">
