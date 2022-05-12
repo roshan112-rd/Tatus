@@ -46,11 +46,13 @@
         <div class="wrap-menu-desktop">
             <div class="limiter-menu-desktop container">					
                 <!-- Logo desktop -->
-                {% for header_logo in header_logo %}		
-                <div class="logo">
-                    <a href="{% url 'home' %}"><img src="{{header_logo.header.url}}" alt="LOGO"></a>
-                </div>
-                {% endfor %}
+                {% if header_logo %}
+                    {% for header_logo in header_logo %}		
+                    <div class="logo">
+                        <a href="{% url 'home' %}"><img src="{{header_logo.header.url}}" alt="LOGO"></a>
+                    </div>
+                    {% endfor %}
+                {% endif %}
                 <!-- Menu desktop -->
                 <div class="menu-desktop">
                     <ul class="main-menu respon-sub-menu">

@@ -86,15 +86,12 @@ def blog_single (request, id):
 
 
 def comment(request,id):
-    header_logo=Logo.objects.all()
-    footer_logo=Logo.objects.all()
     if request.method == 'POST':
         full_name = request.POST['full_name']
         email = request.POST['email']
         comment = request.POST['comment']
         
         Comment.objects.create(full_name=full_name, email=email,comment=comment,blog=Blog.objects.get(id=id))
-        
         return redirect ('blog_single',id)
     return redirect('blog_single')
 
