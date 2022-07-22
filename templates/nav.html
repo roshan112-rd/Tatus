@@ -46,13 +46,11 @@
         <div class="wrap-menu-desktop">
             <div class="limiter-menu-desktop container">					
                 <!-- Logo desktop -->
-                {% if header_logo %}
-                    {% for header_logo in header_logo %}		
+                		
                     <div class="logo">
                         <a href="{% url 'home' %}"><img src="{{header_logo.header.url}}" alt="LOGO"></a>
                     </div>
-                    {% endfor %}
-                {% endif %}
+                   
                 <!-- Menu desktop -->
                 <div class="menu-desktop">
                     <ul class="main-menu respon-sub-menu">
@@ -63,7 +61,7 @@
                             <a href="{% url 'about' %}">About Us</a>
                         </li>
                         <li>
-                            <a href="{% url 'events' %}">Events</a>
+                            <a href="{% url 'gallery' %}">gallery</a>
                         </li>
                         <li>
                             <a href="{% url 'projects' %}">Projects</a>

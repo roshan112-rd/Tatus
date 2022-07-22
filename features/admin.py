@@ -37,7 +37,7 @@ class Messages(SummernoteModelAdmin):
     
 admin.site.register(Blog,BlogFields)
 admin.site.register(Contact,ContactFields)
-admin.site.register(Event,EventFields)
+admin.site.register(Gallery,EventFields)
 admin.site.register(Project,ProjectFields)
 admin.site.register(Comment,CommentFields)
 admin.site.register(Team,Created)

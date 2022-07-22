@@ -1,0 +1,34 @@
+{% load static %}
+{% include 'header.html' %}
+<title>Gallery</title>
+
+<body class="animsition">
+    {% include 'nav.html' %}
+    <section class="bg-img1 kit-overlay1" style="background-image: url('{% static 'images/about.jpg' %}')">
+        <div class="container size-h-3 p-tb-30 flex-col-c-c">
+            <h2 class="t1-b-1 text-uppercase cl-0 txt-center m-b-25">
+                Event Details
+            </h2>
+            <div class="flex-wr-c-c">
+                <a href="{% url 'home' %}" class="breadcrumb-item">
+                    Home
+                </a>
+                <a href="{% url 'gallery' %}" class="breadcrumb-item">
+                    Events
+                </a>
+                <span class="breadcrumb-item">
+                    Event Details
+                </span>
+            </div>
+        </div>
+    </section>
+    
+    {{ gallery.event_title }}
+    
+    <img src="{{ gallery.image1.url }}" alt="image">
+   {% if gallery.image2 %}
+    <img src="{{ gallery.image2.url }}" alt="image">
+   {% endif %}
+
+    {% include 'footer.html' %}
+</body>

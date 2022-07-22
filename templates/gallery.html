@@ -1,0 +1,60 @@
+{% load static %}
+{% include 'header.html' %}
+<title>Events</title>
+<body class="animsition">
+	{% include 'nav.html' %}
+	<section class="bg-img1 kit-overlay1" style="background-image: url('{% static 'images/project.jpg' %}')">
+		<div class="container size-h-3 p-tb-30 flex-col-c-c">
+			<h2 class="t1-b-1 text-uppercase cl-0 txt-center m-b-25">
+				Gallery
+			</h2>
+
+			<div class="flex-wr-c-c">
+				<a href="{% url 'home' %}" class="breadcrumb-item">
+					Home
+				</a>
+
+				<span class="breadcrumb-item">
+					Galelry
+				</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Service -->
+	<div class="bg-0 p-t-100 p-b-50">
+		<div class="container">
+			{% if gallery %}
+			<div class="row">
+				{% for gallery in gallery %}
+				<div class="col-sm-6 col-md-4 p-b-42">
+					<div>
+						<a href="{% url 'gallery_single' id=gallery.event_id %}" class="hov-img0 of-hidden">
+							<img src="{{gallery.image1.url}}" alt="IMG" height="250">
+						</a>
+						<div class="p-t-26">
+							<a href=""
+								class="d-inline-block t1-m-1 cl-3 hov-link2 trans-02 m-b-7">
+								{{gallery.event_title}}
+							</a>
+
+							<p class="t1-s-2 cl-6 m-b-17">
+								{{gallery.event_description|truncatechars:100|safe}}
+
+							</p>
+
+							<a href="{% url 'gallery_single' id=gallery.event_id %}" class="t1-s-5 cl-11 text-uppercase hov-link1 trans-02">
+								<i class="fa fa-long-arrow-right m-r-6"></i>
+								gallery Details
+							</a>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+				
+			</div>
+			{% endif %}
+		</div>
+	</div>
+	{% include 'footer.html' %}
+</body>

@@ -26,9 +26,9 @@ def home(request):
         paginator = Paginator(blog, 3)
         page = request.GET.get('page')
         blog = paginator.get_page(page)
-    header_logo=Logo.objects.all()
-    footer_logo=Logo.objects.all()
-    return render(request,'home.html', {'project': project, 'testimonial':testimonial, 'team':team,'blog':blog, 'header_logo': header_logo, 'footer_logo': footer_logo})
+    header_logo=Logo.objects.filter()[:1].get()   
+    
+    return render(request,'home.html', {'project': project, 'testimonial':testimonial, 'team':team,'blog':blog, 'header_logo': header_logo})
 
 
 
@@ -49,40 +49,39 @@ def about(request):
 
     partner = BusinessPartner.objects.all()
 
-    header_logo=Logo.objects.all()
-    footer_logo=Logo.objects.all()
+    header_logo=Logo.objects.filter()[:1].get()
     message = Message.objects.all().order_by('-created')
     count=message.count()
     if(count == 1):  
         message1 = message[0]
         print('count1')
-        return render(request,'about.html', {'team':team, 'testimonial':testimonial, 'partner':partner, 'message1':message1, 'header_logo': header_logo, 'footer_logo': footer_logo})
+        return render(request,'about.html', {'team':team, 'testimonial':testimonial, 'partner':partner, 'message1':message1, 'header_logo': header_logo})
        
     elif(count >= 2):
         message1 = message[0]
         message2 = message[1]
         print('count2')
-        return render(request,'about.html', {'team':team, 'testimonial':testimonial, 'partner':partner, 'message1':message1, 'message2':message2, 'header_logo': header_logo, 'footer_logo': footer_logo})
+        return render(request,'about.html', {'team':team, 'testimonial':testimonial, 'partner':partner, 'message1':message1, 'message2':message2, 'header_logo': header_logo})
     else:
         print('count3')
-        return render(request,'about.html', {'team':team, 'testimonial':testimonial, 'partner':partner, 'header_logo': header_logo, 'footer_logo': footer_logo})
+        return render(request,'about.html', {'team':team, 'testimonial':testimonial, 'partner':partner, 'header_logo': header_logo})
         
     
 
 
 def blogs (request):
-    header_logo=Logo.objects.all()
-    footer_logo=Logo.objects.all()
+    header_logo=Logo.objects.filter()[:1].get()
     blog=Blog.objects.all()
-    return render(request,'blogs.html',{'blog':blog, 'header_logo': header_logo, 'footer_logo': footer_logo})
+
+    logo = Logo.objects.filter()[:1].get()  
+    return render(request,'blogs.html',{'blog':blog, 'header_logo': header_logo})
 
 
 def blog_single (request, id):
-    header_logo=Logo.objects.all()
-    footer_logo=Logo.objects.all()
+    header_logo=Logo.objects.filter()[:1].get()
     blog=Blog.objects.get(id= id)
     comment=Comment.objects.filter(blog_id=id)
-    return render(request,'blog_single.html',{'blog':blog, 'comment':comment,'header_logo': header_logo, 'footer_logo': footer_logo})
+    return render(request,'blog_single.html',{'blog':blog, 'comment':comment,'header_logo': header_logo})
 
 
 def comment(request,id):
@@ -97,45 +96,27 @@ def comment(request,id):
 
 
 def contact(request):
-    header_logo=Logo.objects.all()
-    footer_logo=Logo.objects.all()
+    header_logo=Logo.objects.filter()[:1].get()
     if request.method == 'POST':
         full_name = request.POST['full_name']
         email = request.POST['email']
         message = request.POST['message']
         Contact.objects.create(full_name=full_name, email=email, message=message,contact=contact)
         return redirect ('home')
-    return render (request,'contact.html', {'header_logo': header_logo, 'footer_logo': footer_logo})
-
-
-def events (request):
-    header_logo=Logo.objects.all()
-    footer_logo=Logo.objects.all()
-    event= Event.objects.all()
-    return render(request, 'events.html', {'event':event, 'header_logo': header_logo, 'footer_logo': footer_logo})
-
-
-def event_single (request, id):
-    header_logo=Logo.objects.all()
-    footer_logo=Logo.objects.all()
-    event=Event.objects.get(event_id= id)
-    return render(request,'event_single.html',{'event':event, 'header_logo': header_logo, 'footer_logo': footer_logo})
-
+    return render (request,'contact.html', {'header_logo': header_logo})
 
 def projects (request):
-    header_logo=Logo.objects.all()
-    footer_logo=Logo.objects.all()
+    header_logo=Logo.objects.filter()[:1].get()
     completed = Project.objects.filter(status = "completed")
     ongoing = Project.objects.filter(status = "ongoing")
     upcoming = Project.objects.filter(status = "upcoming")
-    return render(request, 'projects.html', {'completed': completed,'ongoing': ongoing,'upcoming': upcoming, 'header_logo': header_logo, 'footer_logo': footer_logo})
+    return render(request, 'projects.html', {'completed': completed,'ongoing': ongoing,'upcoming': upcoming, 'header_logo': header_logo})
 
 
 def project_single (request, id):
-    header_logo=Logo.objects.all()
-    footer_logo=Logo.objects.all()
+    header_logo=Logo.objects.filter()[:1].get()
     project=Project.objects.get(project_id= id)
-    return render(request,'project_single.html',{'project':project,'header_logo': header_logo, 'footer_logo': footer_logo})
+    return render(request,'project_single.html',{'project':project,'header_logo': header_logo})
 
 
 def error(request,exception):
@@ -143,9 +124,19 @@ def error(request,exception):
 
 
 def subscribe(request):
-    
     if request.method == 'POST':
         email = request.POST['email']
         Subscription.objects.create(email=email)
         return redirect ('home')
-    return render (request,'contact.html')
+    return render (request,'contact.html',)
+
+
+def gallery(request):
+    header_logo=Logo.objects.filter()[:1].get()
+    gallery=Gallery.objects.all()
+    return render(request, 'gallery.html',{'gallery':gallery, 'header_logo': header_logo})
+
+def gallery_single (request, id):
+    header_logo=Logo.objects.filter()[:1].get()
+    gallery=Gallery.objects.get(event_id= id)
+    return render(request,'gallery_single.html',{'gallery':gallery, 'header_logo': header_logo})
